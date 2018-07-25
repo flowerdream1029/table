@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<!-- 字符编码必须声明为utf-8 -->
+	<meta charset="utf-8">
+	<!-- 兼容低版本的IE浏览器 -->
+	<!--[if lt IE 7]>  <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="zh"> <![endif]-->
+    <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="zh"> <![endif]-->
+    <!--[if IE 8]>    <html class="no-js lt-ie9" lang="zh"> <![endif]-->
+    <!--[if gt IE 8]>  <html class="no-js" lang="zh"> <![endif]-->
+	<!-- 必须设置视窗 -->
+	<meta name="viewport" content="width=device-width">
+	<!-- 为文档设置兼容IE最新的模式 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<!-- 必须为文档设置关键字和描述，以便搜索引擎找到 -->
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<title>表格的增删改查</title>
+	<!-- 必须给每个网页设置网页图标 -->
+	<link rel="shortcut icon" href="http://example.com/myicon.ico" />
+	<link rel="stylesheet" type="text/css" href="table.css">
+</head>
+<body>
+	<table id="table-tops" class="table-tops">
+		<thead>
+			<tr>
+				<th colspan="3" align="left">
+					<button onclick="addLine()" style="margin-left: 20px">增加</button>
+					<button onclick="delLine()">删除</button>
+				</th>
+				<th colspan="2">
+					<input type="text" name="name" placeholder="请输入姓名或者兄弟名" id="search-name"/>
+				    <button onclick="searchLine()">查询</button>
+				</th>
+			</tr>
+			<tr>
+				<th>序号</th>
+				<th id="th-name" onclick="showDetail()">姓名</th>
+				<th>创始人</th>
+				<th>
+					<div>
+						身高
+						<span id="up-arrow" onclick="sortHeight(this)">▲</span>
+						<span id="down-arrow" onclick="sortHeight(this)">▼</span>
+					</div>
+				</th>
+				<th>兄弟</th>				
+			</tr>
+		</thead>
+        <tbody id="table-body"> 	
+        </tbody>
+        <tfoot>
+        	<tr>
+        		<td colspan="5" align="center">
+        			<div>
+        				共 <span id="total"></span> 条记录 
+        				分 <span id="totalPage">1</span>页 
+        				当前第 <span id="currentPage"></span>	页
+        				
+        				<button onclick="goPage(1,psize)" id="firstPage">首页</button>
+        				
+        				<button onclick="lastPage()" id="lastPage">上一页</button> 
+
+        				<button onclick="nextPage()" id="nextPage">下一页</button>
+        				
+        				<button onclick="tailPage()" id="tailPage">尾页</button>
+
+        				跳至 
+        				<select id="page-select">
+        				</select> 
+        				页
+        				<button onclick="jumpPage()">跳转</button>
+        			</div>
+        		</td>
+        	</tr>
+        </tfoot>	
+	</table>
+<script src="table.js"></script>
+</body>
+</html>
