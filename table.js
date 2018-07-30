@@ -179,7 +179,7 @@ var goPage = function(pno,pSize){
     	var tableBody = document.getElementById("table-body");
     	var irow = tableBody.children[i-1];
     	if(i>=startRow && i<=endRow){
-            irow.style.display = "block";    
+            irow.style.display = "";    
         }else{
             irow.style.display = "none";
         }
